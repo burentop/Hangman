@@ -8,6 +8,13 @@ public class Prompter {
 		mGame = game;
 	}
 	
+	public void play() {
+		while (mGame.getRemainingTries() > 0) {
+			displayProgress();
+			promptForGuess();
+		}
+	}
+	
 	public boolean promptForGuess() {
 		Console console = System.console();
 		String guessAsString = console.readLine("Enter a letter: ");
@@ -16,6 +23,8 @@ public class Prompter {
 	}
 	
 	public void displayProgress() {
-		System.out.printf("Try to solve: %s\n", mGame.getCurrentProgress());
+		// printf formatting would be better, but it's not working in the terminal.
+		System.out.println("You have " + mGame.getRemainingTries() + " tries left to solve: " + mGame.getCurrentProgress()); 
 	}
+
 }
