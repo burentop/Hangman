@@ -57,4 +57,12 @@ public class Game {
 		return MAX_MISSES - mMisses.length();
 	}
 	
+	public boolean isSolved() {
+		return getCurrentProgress().indexOf('-') == -1;
+	}
+	
+	public String getAnswer() {
+		return mAnswer;
+	}
+	
 }
